@@ -24,7 +24,7 @@ export function AuthProvider({ children }) {
       }
 
       try {
-        const response = await api.get("/api/auth/me");
+        const response = await api.get("/auth/me");
         setUser(response.data.user);
       } catch (error) {
         localStorage.removeItem("token");
@@ -39,7 +39,7 @@ export function AuthProvider({ children }) {
 
   // Signup
   const signup = async (name, email, password) => {
-    const response = await api.post("/api/auth/signup", {
+    const response = await api.post("/auth/signup", {
       name,
       email,
       password,
@@ -50,7 +50,7 @@ export function AuthProvider({ children }) {
 
   // Login
   const login = async (email, password) => {
-    const response = await api.post("/api/auth/login", {
+    const response = await api.post("/auth/login", {
       email,
       password,
     });
